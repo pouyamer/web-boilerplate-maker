@@ -4,7 +4,7 @@
   "description": "A boilerplate maker, that creates html, css, js with options",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "build": "node app"
   },
   "author": "",
   "license": "ISC",

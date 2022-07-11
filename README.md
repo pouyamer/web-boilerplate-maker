@@ -6,8 +6,8 @@ to set up run `npm start`
 
 to set up using default value use:
 <br>
-`npm start -- --defaults`
+`npm run build -- --default`
 <br>
 or
 <br>
-`npm start -- -d`
+`npm run build -- -d`
