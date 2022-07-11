@@ -1,0 +1,14 @@
+{
+  "name": "web-boilerplate-maker",
+  "version": "1.0.0",
+  "description": "A boilerplate maker, that creates html, css, js with options",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
