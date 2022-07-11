@@ -1,5 +1,6 @@
-### Web Boilerplate Maker for Node.js
+# Web Boilerplate Maker for Node.js
 
+## Getting Started
 A simple web boilerplate maker for Node.js.
 
 to set up run `npm run build`
