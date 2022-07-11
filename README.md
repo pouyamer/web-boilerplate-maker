@@ -2,7 +2,7 @@
 
 A simple web boilerplate maker for Node.js.
 
-to set up run `npm start`
+to set up run `npm run build`
 
 to set up using default value use:
 <br>
