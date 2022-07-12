@@ -1,6 +1,5 @@
 const prompt = require("prompt-sync")({ sigint: true })
 const fs = require("fs")
-const path = require("path")
 const config = require("./config")
 const TYPES = require("./types")
 
@@ -197,6 +196,7 @@ const getName = (
   }
 }
 
+// makeDonePromptOnYesOrNo is a function that
 const makeDonePromptOnYesOrNo = (
   message,
   cancelMessage,
@@ -205,20 +205,19 @@ const makeDonePromptOnYesOrNo = (
   onNo = () => {},
   onInvalid = () => {}
 ) => {
-  let isInputValid = false
-  while (!isInputValid) {
-    const okAnswer = prompt(message)
+  while (true) {
+    const okAnswer = prompt(message).toLowerCase()
     if (okAnswer === "y") {
-      isInputValid = true
       onYes()
+      break
     } else if (okAnswer === "n") {
-      isInputValid = true
       onNo()
-      console.log("\n")
-      console.log(cancelMessage)
+      console.log("\n" + cancelMessage)
+      break
     } else {
       onInvalid()
       console.log(`\n${InvalidMessage}`)
+      break
     }
   }
 }
@@ -255,8 +254,12 @@ const setCssConfigBasedOnPrompts = () => {
     console.log("\n")
 
     // Asks if the user is done with the current CSS file
+    console.log(
+      `Name: ${name} \nPath: ${path} \nType: ${type} \nExtension: ${extension} \n`
+    )
+
     makeDonePromptOnYesOrNo(
-      `Name: ${name} \nPath: ${path} \nType: ${type} \nExtension: ${extension} \nAre you sure? (y/n) `,
+      `Are you sure? (y/n) `,
       "cancelled",
       "Invalid answer",
       () => {
@@ -316,11 +319,14 @@ const setJSConfigBasedOnPrompts = () => {
 
     console.log("\n")
 
-    // Asks if the user is done with the current CSS file
+    // Asks if the user is done with the current JS file
+    console.log(
+      `Name: ${name} \nPath: ${path} \nType: ${type} \nExtension: ${extension} \n`
+    )
     makeDonePromptOnYesOrNo(
-      `Name: ${name} \nPath: ${path} \nType: ${type} \nExtension: ${extension} \nAre you sure? (y/n) `,
+      `Are you sure? (y/n) `,
       "cancelled",
-      "Invalid answer\n",
+      "Invalid answer",
       () => {
         jsFiles.push({
           name,
